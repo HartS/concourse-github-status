@@ -42,6 +42,7 @@ To set a single status for the current commit of the repository specify these pa
 | state       | Yes      |           | One of ~pending~, ~success~, or ~failure~  |
 | context     | No       | concourse | The ~context~ for the status being updated |
 | description | No       |           | A description of the context.              |
+| target_url  | No       | build URL | URL or file containing URL for status target_url |
 |-------------+----------+-----------+--------------------------------------------|
 
 It is also possible to set multiple statuses at the same time. This is useful for adding multiple ~pending~ statuses
@@ -63,6 +64,7 @@ Each of the status objects supports the following parameters:
 | state       | Yes      |           | One of ~pending~, ~success~, or ~failure~  |
 | context     | No       | concourse | The ~context~ for the status being updated |
 | description | No       |           | A description of the context.              |
+| target_url  | No       | build URL | URL or file containing URL for status target_url |
 |-------------+----------+-----------+--------------------------------------------|
 
 ** ~check~ Get a list of available statuses
