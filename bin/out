@@ -1,8 +1,13 @@
 #!/usr/bin/env ruby
 
 require 'github-status/out'
+f = File.open("debug", "w")
+f.write("\ninvoked out script\n")
 
 status = GitHubStatus::Out.new
+
+f.write(status.config.to_s)
+f.close()
 
 unless status.run
   STDERR.puts "Failed to update status"

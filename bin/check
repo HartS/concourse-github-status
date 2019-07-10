@@ -1,8 +1,13 @@
 #!/usr/bin/env ruby
 
 require 'github-status/check'
+require 'json'
+f = File.open("debug", "w")
+f.write("\ninvoked check script\n")
 
 check = GitHubStatus::Check.new
+f.write(check.config.to_s)
+f.close()
 
 unless check.run
   STDERR.puts "Failed to fetch status"

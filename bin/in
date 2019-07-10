@@ -2,7 +2,12 @@
 
 require 'github-status/in'
 
+f = File.open("debug", "w")
+f.write("\ninvoked in script\n")
+
 fetch = GitHubStatus::In.new
+f.write(fetch.config.to_s)
+f.close()
 
 unless fetch.run
   STDERR.puts "Failed to fetch status"
