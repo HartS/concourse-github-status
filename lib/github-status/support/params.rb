@@ -42,9 +42,9 @@ module GitHubStatus
         url = params.fetch 'target_url', "#{atc_external_url}/builds/#{build_id}"
         STDERR.puts "url set to #{url}"
         STDERR.puts "pwd is #{`pwd`}"
-        if File.file?(url)
-          url = File.read(url).chomp
-          STDERR.puts "url read from file #{url}"
+        if File.file?("#{workdir}/#{url}")
+          url = File.read("#{workdir}/#{url}").chomp
+          STDERR.puts "url read from file #{workdir}/#{url}"
         else
           STDERR.puts `ls`
         end
