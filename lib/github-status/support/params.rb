@@ -40,10 +40,10 @@ module GitHubStatus
       Contract None => String
       def target_url
         url = params.fetch 'target_url', "#{atc_external_url}/builds/#{build_id}"
-        puts "url set to #{url}"
+        STDERR.puts "url set to #{url}"
         if File.file?(url)
           url = File.read(url).chomp
-          puts "url read from file #{url}"
+          STDERR.puts "url read from file #{url}"
         end
         @target_url ||= url
       end
